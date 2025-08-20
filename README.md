@@ -156,7 +156,7 @@ sudo crontab -e
 Add:
 
 ```cron
-0 3 * * * certbot renew --quiet
+30 3 * * * /usr/bin/certbot renew --manual-auth-hook /etc/letsencrypt/auth-arvancloud.sh --manual-cleanup-hook /etc/letsencrypt/clean-arvancloud.sh --non-interactive && systemctl reload nginx
 ```
 
 This checks and renews certificates daily at 3 AM.
